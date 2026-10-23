@@ -1,6 +1,12 @@
 # GDS-ParT-MoE: per-particle Mixture-of-Experts for physics interpretability
 
-This repo adds a **per-particle Mixture-of-Experts (MoE)** to the [Gated Dual-Stream Particle Transformer](https://github.com/Avinashistoocool/Gated-Dual-Stream-Particle-Transformer). It then measures **what physics each expert learns** on JetClass.
+This repo adds a **per-particle Mixture-of-Experts (MoE)** to the [Gated Dual-Stream Particle Transformer](https://github.com/Avinashistoocool/Gated-Dual-Stream-Particle-Transformer) and measures **what physics each expert learns** on JetClass. The work was done under **Prof. Abhishek Iyer**, May–Jul 2026.
+
+**Highlights**
+
+- **Sparse upcycling.** Starting from the trained dense GDS-ParT (84.8% test accuracy, AUC 0.985 on 1M JetClass jets), the 8-expert top-2 MoE keeps **84.8% accuracy** before any fine-tuning.
+- **Physics probes.** Mutual information and expert-knockout studies relate each expert to particle species, charge, momentum share, angle to the jet axis, impact parameter, and Lund-plane kT.
+- **First finding.** The first-layer experts split particles by **charge and species** (normalised MI 0.45 / 0.43). One expert specialises in **muons and displaced tracks** and is used most by H→bb̄ jets.
 
 ## Idea
 
