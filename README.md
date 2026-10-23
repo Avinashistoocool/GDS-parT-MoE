@@ -70,3 +70,28 @@ The v2 checkpoint was upcycled to 8 experts with top-2 routing in all 8 layers. 
 - Check **NMI near 0 in early layers and rising with depth**. That pattern means routing moves from raw kinematics to jet-substructure roles.
 - A **knockout that hurts mainly Hbb/Hcc** for an expert with high |d0| is a displaced-vertex (heavy-flavour) expert. One that hurts **Tbl/Hqql** and is enriched in e/μ is a lepton expert.
 - These statements are correlations. Confirm a finding by retraining with a different seed and checking that the same partition appears.
+
+## Status and next steps
+
+| Done | |
+|---|---|
+| Per-particle MoE, upcycling, load-balance and z-losses, unit tests | ✅ |
+| Upcycled 8-expert top-2 model, 1 epoch on 300k jets, val acc 0.8472 | ✅ |
+| Analysis pipeline (routing, physics profiles, MI, knockout) and first report | ✅ |
+
+| Next (lab PC) | Why |
+|---|---|
+| Fine-tune for 3+ epochs on the full 10M cache | the deeper-layer experts have not specialised yet |
+| Sweep `--aux_weight 1e-3`, `--top_k 1`, `--moe_layers 4,5,6,7` | sharper routing that is easier to interpret |
+| Repeat with a second seed | check that the expert partition is reproducible |
+| Upcycle the 20-epoch checkpoint once it finishes | start from the strongest dense model |
+
+## Running on another machine
+
+```bash
+git clone https://github.com/Avinashistoocool/GDS-parT-MoE && cd GDS-parT-MoE
+git clone https://github.com/Avinashistoocool/Gated-Dual-Stream-Particle-Transformer ../gds_part   # for the dense checkpoint
+pip install -r requirements.txt && python tests/test_moe.py
+```
+
+Training reads the JetClass **cache** built by the GDS-ParT trainer (`$DATA/cache/train_train_10M_*_128`, `$DATA/cache/val_val_*_128`). You can copy that folder from a machine that already has it, or build it once with `train_gds_part.py --cache_only` (see the GDS-ParT `GUIDE.md`, section 3). Pass its location with `--cache_dir $DATA/cache`.
