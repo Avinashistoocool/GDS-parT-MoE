@@ -1,0 +1,4 @@
+__pycache__/
+checkpoints/
+analysis/smoke/
+*.pt

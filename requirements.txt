@@ -1,0 +1,6 @@
+# install torch first with the CUDA build matching your driver
+numpy
+awkward
+uproot
+scikit-learn
+matplotlib
