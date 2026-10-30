@@ -1,0 +1,40 @@
+site_name: GDS-ParT-MoE
+site_description: Per-particle Mixture-of-Experts for the Gated Dual-Stream Particle Transformer
+site_url: https://avinashistoocool.github.io/GDS-parT-MoE/
+repo_url: https://github.com/Avinashistoocool/GDS-parT-MoE
+repo_name: Avinashistoocool/GDS-parT-MoE
+edit_uri: edit/main/docs/
+docs_dir: docs
+strict: true
+exclude_docs: |
+  *.tex
+
+theme:
+  name: material
+  palette:
+    - scheme: slate
+      primary: indigo
+      accent: cyan
+      toggle: {icon: material/brightness-4, name: Light mode}
+    - scheme: default
+      primary: indigo
+      accent: cyan
+      toggle: {icon: material/brightness-7, name: Dark mode}
+  features:
+    - navigation.sections
+    - navigation.top
+    - content.code.copy
+    - search.highlight
+
+nav:
+  - Home: index.md
+  - First results: results.md
+  - Technical report (PDF): GDS-ParT-MoE_Technical_Report.pdf
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - tables
+  - toc: {permalink: true}
+  - pymdownx.superfences
+  - pymdownx.highlight

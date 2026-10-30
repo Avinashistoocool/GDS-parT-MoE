@@ -8,6 +8,13 @@ This repo adds a **per-particle Mixture-of-Experts (MoE)** to the [Gated Dual-St
 - **Physics probes.** Mutual information and expert-knockout studies relate each expert to particle species, charge, momentum share, angle to the jet axis, impact parameter, and Lund-plane kT.
 - **First finding.** The first-layer experts split particles by **charge and species** (normalised MI 0.45 / 0.43). One expert specialises in **muons and displaced tracks** and is used most by H→bb̄ jets.
 
+## Documentation
+
+Browse everything at **[avinashistoocool.github.io/GDS-parT-MoE](https://avinashistoocool.github.io/GDS-parT-MoE/)**.
+
+- [**Technical report (PDF)**](docs/GDS-ParT-MoE_Technical_Report.pdf): the architecture and all of the mathematics, including the router, the renormalised top-k mixture, the load-balancing and z-losses, sparse upcycling, the training schedule, the jet-tagging metrics, the expert-analysis statistics (physics profiles, normalised mutual information, knockout) and the first results. The LaTeX source is in [`docs/GDS-ParT-MoE_Technical_Report.tex`](docs/GDS-ParT-MoE_Technical_Report.tex).
+- [**First results**](docs/results.md): accuracy, mutual information per layer, the layer-0 experts and the knockout study.
+
 ## Idea
 
 In every transformer block, the particle FFN becomes `n_experts` FFNs and a router. The router sends each **particle token** to its top-k experts. Because the router looks at one particle at a time, you can compare each routing decision with that particle's physics. If the experts specialise, the routing works as a learned partition of particle phase space:
@@ -95,3 +102,8 @@ pip install -r requirements.txt && python tests/test_moe.py
 ```
 
 Training reads the JetClass **cache** built by the GDS-ParT trainer (`$DATA/cache/train_train_10M_*_128`, `$DATA/cache/val_val_*_128`). You can copy that folder from a machine that already has it, or build it once with `train_gds_part.py --cache_only` (see the GDS-ParT `GUIDE.md`, section 3). Pass its location with `--cache_dir $DATA/cache`.
+
+## Citing
+
+If GDS-ParT-MoE helps your research, cite it using GitHub's **Cite this repository** button
+(from [`CITATION.cff`](CITATION.cff)).
