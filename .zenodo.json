@@ -36,5 +36,6 @@
       "relation": "isDerivedFrom",
       "scheme": "url"
     }
-  ]
+  ],
+  "license": "MIT"
 }

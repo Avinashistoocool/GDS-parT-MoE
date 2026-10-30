@@ -107,3 +107,7 @@ Training reads the JetClass **cache** built by the GDS-ParT trainer (`$DATA/cach
 
 If GDS-ParT-MoE helps your research, cite it using GitHub's **Cite this repository** button
 (from [`CITATION.cff`](CITATION.cff)).
+
+## License
+
+MIT. See [`LICENSE`](LICENSE). The JetClass dataset keeps its own license.

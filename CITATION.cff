@@ -6,6 +6,7 @@ authors:
   - given-names: Avinash
     alias: Avinashistoocool
 version: 1.0.0
+license: MIT
 date-released: 2026-10-30
 repository-code: "https://github.com/Avinashistoocool/GDS-parT-MoE"
 url: "https://avinashistoocool.github.io/GDS-parT-MoE/"
