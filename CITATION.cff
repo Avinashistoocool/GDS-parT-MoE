@@ -3,7 +3,8 @@ message: "If you use GDS-ParT-MoE in research or a report, please cite it as bel
 title: "GDS-ParT-MoE: per-particle Mixture-of-Experts for physics interpretability of the Gated Dual-Stream Particle Transformer"
 type: software
 authors:
-  - given-names: Avinash
+  - given-names: Avinash Chandra
+    family-names: Gupta
     alias: Avinashistoocool
 version: 1.0.0
 license: MIT
